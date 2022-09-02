@@ -1,34 +1,22 @@
 * {
   font-family: 'Inter', sans-serif;
   box-sizing: border-box;
-  background-color: #1d1f25;
-}
-
-.infotext > *,
-.infotext > * > *,
-.editstats > *,
-.currentstats > *,
-.currentstats > * > *,
-.goalstats > *,
-.goalstats > * > *,
-.slider > *,
-.skillnum {
-  background-color: #272a35;
+  background-color: #222831;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
-  max-width: 52%;
+  max-width: 41.8%;
   align-items: center;
   padding: 15px 0;
   margin: auto;
-  min-width: 385px;
+  min-width: 360px;
 }
 
 .navlogo,
 .navlist > li > a {
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
   color: #fff;
   transition: all 0.1s ease-in-out;
@@ -49,11 +37,10 @@
   padding-left: 40px;
 }
 
-.searchpage,
-.listpage {
+.page {
   display: flex;
   flex-direction: column;
-  max-width: 75%;
+  max-width: 60%;
   align-items: center;
   padding: 15px 0;
   margin: auto;
@@ -63,88 +50,60 @@
   color: white;
 }
 
-.displaycard {
+.char-info {
   color: #fff;
-  min-width: 385px;
+  min-width: 360px;
   width: 70%;
   display: flex;
   flex-direction: column;
   margin: 25px 0 0 0;
 }
 
-.displayimage {
-  max-height: 72px;
+.char-image {
+  max-height: 96px;
+  border-radius: 8px;
 }
 
-.info {
-  background-color: #272a35;
+.char-header {
   display: flex;
   flex-direction: row;
   padding: 35px;
-  border-radius: 15px;
+  border-radius: 8px 8px 0 0;
   justify-content: center;
   align-items: center;
-}
-
-.infotext {
-  padding: 0 15px 0 10px;
-  background-color: #272a35;
-  display: flex;
-}
-
-.infotext > div > h1 {
-  margin: 0;
-  padding: 0;
-}
-
-.rarity {
-  margin: 3px 0 0 0;
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.editstats {
-  background-color: #272a35;
-  display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  min-height: 250px;
-  margin: 25px 0 0 0;
-  border-radius: 15px 15px 0 0;
-  align-items: center;
-  justify-content: center;
+  gap: 10px;
 }
 
 .search {
   width: 70%;
-  min-width: 385px;
+  min-width: 360px;
 }
 
 .search input {
-  background-color: rgba(255, 255, 255, 0);
-  border: 2px solid #272a35;
-  border-radius: 15px;
+  background-color: #fff;
+  border: none;
+  border-radius: 18px;
   font-size: 16px;
   font-weight: 500;
-  height: 46px;
+  height: 45px;
   width: 100%;
   padding: 0 0 0 15px;
-  color: #fff;
+  color: #111;
 }
 
 .search input:focus {
   outline: none;
-  border: 2px solid #aaa;
-  background-color: rgba(255, 255, 255, 0.03);
-  transition: all 0.1s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.85);
+  transition: all 0.2s ease-in-out;
 }
 
 .dataresult {
   margin: 5px 0 0 0;
   width: 100%;
   max-height: 250px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 15px;
+  border: 2px solid #4a5064;
+  border-radius: 18px;
   overflow: hidden;
   overflow-y: auto;
   scrollbar-width: none;
@@ -156,7 +115,7 @@
 
 .dataresult .dataitem {
   width: 100%;
-  height: 45px;
+  height: 44px;
   display: flex;
   align-items: center;
   padding: 0 0 0 15px;
@@ -168,90 +127,61 @@
   background-color: rgba(255, 255, 255, 0.03);
 }
 
-.classicon {
-  margin: 6px 0px 0 6px;
-  max-height: 29px;
+input[type='radio'] {
+  display: none;
 }
 
-.currentstats {
+.char-val {
+  margin: 0 0 1.5rem;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
+  flex-flow: row nowrap;
+  justify-content: center;
   align-items: stretch;
-  font-size: 18px;
-  font-weight: 700;
-  margin: 35px 20px;
-  flex-shrink: 1;
 }
 
-.currentlvlatkhp {
-  display: flex;
-  margin-top: 14px;
-}
-
-.currentlvlatkhp input {
-  margin: 0 14px 0 5px;
-  color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  border-radius: 8px;
-  font-size: 18px;
+.char-val-radio + label {
+  cursor: pointer;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  border: solid 1px #333847;
+  background-color: rgba(28, 28, 31, 0.534);
+  flex-grow: 1;
+  font-size: 1rem;
+  line-height: 140%;
   font-weight: 600;
-  height: 34px;
-  max-width: 60px;
-  padding: 0 0 0 5px;
+  text-align: center;
+  transition: border-color 0.15s ease-out, color 0.25s ease-out,
+    background-color 0.15s ease-out, box-shadow 0.15s ease-out;
 }
 
-.currentlvlatkhp input:focus {
-  outline: none;
-  border: 2px solid #aaa;
-  background-color: rgba(255, 255, 255, 0.03);
-  transition: all 0.1s ease-in-out;
-}
-.currentlvlatkhp div {
-  margin: 6px 0 0 0;
+.char-val-radio:hover + label {
+  border-color: #63788b;
 }
 
-.currentskills {
-  margin-top: 3px;
+.char-val-radio:checked + label {
+  background-color: #4b9dea;
+  color: #fff;
+  border-color: #4b9dea;
 }
 
-.currentskills > div {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 10px;
+.char-val-radio:first-of-type + label {
+  border-radius: 6px 0 0 6px;
 }
 
-.cskilltitle {
-  align-self: center;
-  font-size: 20px;
-}
-
-.sliders {
-  display: flex;
-  justify-content: space-between;
-  background-color: #272a35;
-}
-
-.slider {
-  margin-right: 10px;
-  justify-content: space-between;
-  background-color: #272a35;
-  accent-color: #5dadac;
-}
-
-.skilllvl {
-  width: 24px;
-  margin: auto;
-  /* border: 1px solid red; */
-  background-color: #272a35;
+.char-val-radio:last-of-type + label {
+  border-radius: 0 6px 6px 0;
 }
 
 .addToListButton {
-  margin: 0 0 0 0;
+  margin: 5px 0 0 0;
   color: #fff;
   background-color: #333847;
   border: none;
-  border-radius: 0 0 15px 15px;
+  border-radius: 8px;
   font-size: 18px;
   font-weight: 500;
   height: 46px;
