@@ -46,10 +46,6 @@
   margin: auto;
 }
 
-.searchbar {
-  color: white;
-}
-
 .char-info {
   color: #fff;
   min-width: 360px;
@@ -61,7 +57,7 @@
 
 .char-image {
   max-height: 96px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .char-header {
@@ -83,7 +79,7 @@
 .search input {
   background-color: #fff;
   border: none;
-  border-radius: 18px;
+  border-radius: 10px;
   font-size: 16px;
   font-weight: 500;
   height: 45px;
@@ -103,7 +99,7 @@
   width: 100%;
   max-height: 250px;
   border: 2px solid #4a5064;
-  border-radius: 18px;
+  border-radius: 10px;
   overflow: hidden;
   overflow-y: auto;
   scrollbar-width: none;

@@ -9,6 +9,7 @@ const CharValues = (props) => {
           name={props.valueName}
           className='char-val-radio'
           id={props.valueName + v}
+          key={props.valueName + v}
           value={v}
           defaultChecked={v === props.valueCheck ? true : false}
         />
@@ -18,7 +19,11 @@ const CharValues = (props) => {
   });
 
   return (
-    <div className={props.className} onChange={props.update}>
+    <div
+      className={props.className}
+      onChange={props.update}
+      key={props.valueName}
+    >
       {printSelection}
     </div>
   );

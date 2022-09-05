@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Search = ({ data, setServantID }) => {
   const [filteredList, setFilterestList] = useState([]);
@@ -20,6 +20,11 @@ const Search = ({ data, setServantID }) => {
     }
   };
 
+  const clickSearch = (id) => {
+    setFilterestList([]);
+    setServantID(id);
+  };
+
   return (
     <div className='search'>
       <input type='text' placeholder='Search...' onChange={handleSearch} />
@@ -30,7 +35,7 @@ const Search = ({ data, setServantID }) => {
               <div
                 className='dataitem'
                 key={value.id}
-                onClick={() => setServantID(value.id)}
+                onClick={() => clickSearch(value.id)}
               >
                 {value.name +
                   ' (' +

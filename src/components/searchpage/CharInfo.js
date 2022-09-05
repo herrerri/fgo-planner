@@ -6,12 +6,7 @@ const capitalizeFirstLetter = (string) => {
 };
 
 const CharInfo = (props) => {
-  const [selectedValues, setSelectedValues] = useState([]);
   const [tab, setTab] = useState('Levels');
-
-  const updateSelection = (e) => {
-    setSelectedValues(e.target.value);
-  };
 
   const updateTab = (e) => {
     setTab(e.target.value);
@@ -41,21 +36,24 @@ const CharInfo = (props) => {
             className='char-val'
             valueName='level'
             valueList={[80, 90, 100, 120]}
-            valueCheck={90}
+            valueCheck={props.selectedValues.level}
+            update={props.updateSelection}
           />
           <div className='char-header'>ATK Fou</div>
           <CharValues
             className='char-val'
             valueName='atk'
             valueList={[0, 1000, 2000]}
-            valueCheck={1000}
+            valueCheck={props.selectedValues.atk}
+            update={props.updateSelection}
           />
           <div className='char-header'>HP Fou</div>
           <CharValues
             className='char-val'
             valueName='hp'
             valueList={[0, 1000, 2000]}
-            valueCheck={1000}
+            valueCheck={props.selectedValues.hp}
+            update={props.updateSelection}
           />
         </>
       ) : (
@@ -68,21 +66,24 @@ const CharInfo = (props) => {
             className='char-val'
             valueName='skill1'
             valueList={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-            valueCheck={9}
+            valueCheck={props.selectedValues.skill1}
+            update={props.updateSelection}
           />
           <div className='char-header'>Skill 2</div>
           <CharValues
             className='char-val'
             valueName='skill2'
             valueList={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-            valueCheck={9}
+            valueCheck={props.selectedValues.skill2}
+            update={props.updateSelection}
           />
           <div className='char-header'>Skill 3</div>
           <CharValues
             className='char-val'
             valueName='skill3'
             valueList={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-            valueCheck={9}
+            valueCheck={props.selectedValues.skill3}
+            update={props.updateSelection}
           />
         </>
       ) : (
@@ -95,27 +96,30 @@ const CharInfo = (props) => {
             className='char-val'
             valueName='append1'
             valueList={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-            valueCheck={1}
+            valueCheck={props.selectedValues.append1}
+            update={props.updateSelection}
           />
           <div className='char-header'>Append Skill 2</div>
           <CharValues
             className='char-val'
             valueName='append2'
             valueList={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-            valueCheck={10}
+            valueCheck={props.selectedValues.append2}
+            update={props.updateSelection}
           />
           <div className='char-header'>Append Skill 3</div>
           <CharValues
             className='char-val'
             valueName='append3'
             valueList={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
-            valueCheck={1}
+            valueCheck={props.selectedValues.append3}
+            update={props.updateSelection}
           />
         </>
       ) : (
         ''
       )}
-      <button className='addToListButton' onClick={() => props.addToList()}>
+      <button className='addToListButton' onClick={() => props.addToUserList()}>
         Add to List
       </button>
     </div>

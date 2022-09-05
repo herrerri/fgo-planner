@@ -44,6 +44,7 @@ const App = () => {
               data={ServantData}
               servantList={servantList}
               setServantList={setServantList}
+              inputList={inputList}
               setInputList={setInputList}
             />
           }

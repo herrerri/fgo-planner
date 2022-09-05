@@ -3,21 +3,36 @@ import axios from 'axios';
 import Search from './Search';
 import CharInfo from './CharInfo';
 
+// Default values for the radio button selection
+const defaultValues = {
+  level: 90,
+  atk: 1000,
+  hp: 1000,
+  skill1: 9,
+  skill2: 9,
+  skill3: 9,
+  append1: 1,
+  append2: 10,
+  append3: 1,
+};
+
 const SearchPage = (props) => {
   const [loading, setLoading] = useState(true);
   const [servantID, setServantID] = useState('');
   const [servant, setServant] = useState({});
+  const [selectedValues, setSelectedValues] = useState(defaultValues);
 
-  // Get servant data either from API or cache
+  // Get servant data either from API or local storage
   useEffect(() => {
     if (servantID !== '') {
       const fetchData = async () => {
         let servantData;
-        let itemData;
 
         try {
           if (entryExists(props.servantList, servantID)) {
-            servantData = props.servantList.find((svt) => svt.id === servantID);
+            servantData = await props.servantList.find(
+              (svt) => svt.id === servantID
+            );
           } else {
             const servant = await axios.get(
               'https://api.atlasacademy.io/nice/JP/servant/' +
@@ -46,6 +61,8 @@ const SearchPage = (props) => {
             props.setServantList(newServantList);
           }
 
+          setLoading(true);
+          setSelectedValues(defaultValues);
           setServant(servantData);
           setLoading(false);
         } catch (error) {
@@ -77,28 +94,30 @@ const SearchPage = (props) => {
     }));
   };
 
-  // Saving user input in local storage
-  const addToUserList = () => {
-    if (!entryExists) {
-      // props.setInputList(newInputList);
-    }
+  // Update the selected values
+  const updateSelection = (e) => {
+    console.log(selectedValues);
+    setSelectedValues((prevState) => {
+      return { ...prevState, [e.target.name]: parseInt(e.target.value) };
+    });
   };
 
-  const maxLevel = (rarity) => {
-    switch (rarity) {
-      case 1:
-        return 60;
-      case 2:
-        return 65;
-      case 3:
-        return 70;
-      case 4:
-        return 80;
-      case 5:
-        return 90;
-      default:
-        return 90;
+  // Saving user input in local storage
+  const addToUserList = () => {
+    let newInputList;
+    if (!entryExists(props.inputList, servantID)) {
+      newInputList = [
+        ...props.inputList,
+        { id: servantID, values: selectedValues },
+      ];
+    } else {
+      const filteredList = props.inputList.filter((servant) => {
+        return servant.id !== servantID;
+      });
+      newInputList = [filteredList, { id: servantID, values: selectedValues }];
     }
+    props.setInputList(newInputList);
+    setLoading(true);
   };
 
   return (
@@ -113,6 +132,8 @@ const SearchPage = (props) => {
           rarity={servant.rarity}
           face={servant.face}
           addToUserList={addToUserList}
+          selectedValues={selectedValues}
+          updateSelection={updateSelection}
         />
       )}
     </div>
