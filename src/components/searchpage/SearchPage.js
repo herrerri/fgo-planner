@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Search from './Search';
 import CharInfo from './CharInfo';
-require('dotenv').config();
 
 const SearchPage = (props) => {
   const [loading, setLoading] = useState(true);
@@ -21,7 +20,9 @@ const SearchPage = (props) => {
             servantData = props.servantList.find((svt) => svt.id === servantID);
           } else {
             const servant = await axios.get(
-              process.env.REACT_APP_API + servantID + '?lang=en'
+              'https://api.atlasacademy.io/nice/JP/servant/' +
+                servantID +
+                '?lang=en'
             );
 
             servantData = {
