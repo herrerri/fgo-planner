@@ -9,11 +9,16 @@ const CharValues = (props) => {
           name={props.valueName}
           className='char-val-radio'
           id={props.valueName + v}
-          key={props.valueName + v}
+          key={props.valueName + v + 'radio'}
           value={v}
           defaultChecked={v === props.valueCheck ? true : false}
         />
-        <label htmlFor={props.valueName + v}>{v}</label>
+        <label
+          key={props.valueName + v + 'label'}
+          htmlFor={props.valueName + v}
+        >
+          {v}
+        </label>
       </>
     );
   });

@@ -5,16 +5,12 @@ const Navbar = () => {
   return (
     <nav className='navbar'>
       <Link to='/' className='navlogo'>
-        FGO App
+        Search
       </Link>
-      <ul className='navlist'>
-        <li>
-          <Link to='/'>Search</Link>
-        </li>
-        <li>
-          <Link to='/list'>List</Link>
-        </li>
-      </ul>
+
+      <Link className='navlist navlogo' to='/overview'>
+        Overview
+      </Link>
     </nav>
   );
 };

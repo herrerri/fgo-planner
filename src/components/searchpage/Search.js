@@ -20,7 +20,7 @@ const Search = ({ data, setServantID }) => {
     }
   };
 
-  const clickSearch = (id) => {
+  const handleClick = (id) => {
     setFilterestList([]);
     setServantID(id);
   };
@@ -35,7 +35,7 @@ const Search = ({ data, setServantID }) => {
               <div
                 className='dataitem'
                 key={value.id}
-                onClick={() => clickSearch(value.id)}
+                onClick={() => handleClick(value.id)}
               >
                 {value.name +
                   ' (' +
