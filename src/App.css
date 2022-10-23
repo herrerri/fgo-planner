@@ -15,7 +15,17 @@
 }
 
 h1 {
-  margin-bottom: 0;
+  margin: 0 0 12px 0;
+  font-size: 3rem;
+  max-width: 400px;
+}
+
+p {
+  color: #fff;
+  font-size: 0.875rem;
+  text-align: left;
+  background-color: #323b48;
+  padding: 0 12px;
 }
 
 .subheading {
@@ -28,12 +38,46 @@ h1 {
   text-align: center;
 }
 
+.examples-text {
+  max-width: 525px;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 24px 0 12px 0;
+}
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.example {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  margin: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.example:hover {
+  background-color: #2a313c;
+  transition: background-color 0.2s ease-out;
+}
+
+.example-text {
+  padding-top: 8px;
+  font-weight: 600;
+  background-color: transparent;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   max-width: 30%;
   align-items: center;
-  padding: 15px 0;
+  padding: 30px 0 20px 0;
   margin: auto;
   min-width: var(--main-min-width);
 }
@@ -104,7 +148,7 @@ h1 {
 }
 
 .search {
-  padding-top: 24px;
+  padding: 24px 0;
   width: 100%;
   min-width: var(--main-min-width);
 }

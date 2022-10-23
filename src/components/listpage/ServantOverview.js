@@ -40,6 +40,7 @@ const ServantOverview = (props) => {
   return (
     <div className='item-overview blue-two'>
       <h2 className='item-overview-header blue-two'>Servant Overview</h2>
+
       <div className='servant-overview-items blue-two'>
         {servantDisplay(props.servants, props.inputList).length === 0 ? (
           <div className='empty-text'>

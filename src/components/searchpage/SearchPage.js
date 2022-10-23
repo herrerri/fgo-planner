@@ -88,6 +88,46 @@ const SearchPage = (props) => {
         Plan out future item calculations by searching and adding FGO servants
         to a list!
       </i>
+      <div className='examples-text blue-two'>
+        <p>
+          Fate/Grand Order is a mobile game for Android and iOS where one of the
+          main functions of the game involves gathering resources and using them
+          to develop the characters you receive in-game.
+        </p>
+        <p>
+          If you are unsure of what to search or would just like to see the app
+          in action, the examples below will showcase the search function. After
+          clicking on an example, you can click the "Add to List" button to see
+          data in the Overview page. You can play around with the different tabs
+          and see the data being overwritten using different settings.
+        </p>
+      </div>
+      <div className='examples'>
+        <div className='example blue-two' onClick={() => setServantID(2800100)}>
+          <img
+            src='https://static.atlasacademy.io/JP/Faces/f_28001003.png'
+            alt='oberon'
+            className='char-image'
+          ></img>
+          <div className='example-text  white-text'>Oberon</div>
+        </div>
+        <div className='example blue-two' onClick={() => setServantID(704000)}>
+          <img
+            src='https://static.atlasacademy.io/JP/Faces/f_7040003.png'
+            alt='morgan'
+            className='char-image'
+          ></img>
+          <div className='example-text  white-text'>Morgan</div>
+        </div>
+        <div className='example blue-two' onClick={() => setServantID(402900)}>
+          <img
+            src='https://static.atlasacademy.io/JP/Faces/f_4029003.png'
+            alt='achilles'
+            className='char-image'
+          ></img>
+          <div className='example-text  white-text'>Achilles</div>
+        </div>
+      </div>
       <Search data={props.data} setServantID={setServantID} />
       {!userAction ? (
         <div />
