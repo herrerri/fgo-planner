@@ -22,7 +22,7 @@ const ItemOverview = (props) => {
           <img
             loading='lazy'
             src={v.icon}
-            alt={'Image of ' + v.name}
+            alt={v.name}
             className='item-icon blue-two'
           />
           <div className='item-text blue-two'>{'x' + v.amount}</div>

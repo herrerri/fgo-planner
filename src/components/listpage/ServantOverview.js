@@ -28,8 +28,9 @@ const ServantOverview = (props) => {
           onClick={() => props.formPopup(v)}
         >
           <img
+            loading='lazy'
             src={v.face}
-            alt={'Image of ' + v.name}
+            alt={v.name}
             className='servant-icon blue-two'
           />
           <div className='item-hover-text'>{v.name}</div>
