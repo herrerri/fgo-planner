@@ -133,6 +133,8 @@ p {
 
 .char-name {
   margin: 5px 0;
+  font-size: 2rem;
+  max-width: none;
 }
 
 .char-header {
