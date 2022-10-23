@@ -24,7 +24,7 @@ const ServantOverview = (props) => {
     .map((v) => {
       return (
         <div
-          className='servant-container blue-two'
+          className='servant-container  blue-two'
           onClick={() => props.formPopup(v)}
         >
           <img
@@ -39,7 +39,7 @@ const ServantOverview = (props) => {
     });
 
   return (
-    <div className='item-overview blue-two'>
+    <div className='item-overview  blue-two'>
       <h2 className='item-overview-header blue-two'>Servant Overview</h2>
 
       <div className='servant-overview-items blue-two'>
