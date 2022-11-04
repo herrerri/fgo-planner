@@ -129,7 +129,7 @@ const SearchPage = (props) => {
           <div className='example-text  white-text'>Achilles</div>
         </div>
       </div>
-      <Search data={props.data} setServantID={setServantID} />
+      <Search setServantID={setServantID} />
       {!userAction ? (
         <div />
       ) : loading ? (

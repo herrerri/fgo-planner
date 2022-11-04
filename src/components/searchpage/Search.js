@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import ServantData from '../../resources/basic_servant_lang_en.json';
 
-const Search = ({ data, setServantID }) => {
+const Search = ({ setServantID }) => {
   const [filteredList, setFilterestList] = useState([]);
 
   const capitalizeFirstLetter = (string) => {
@@ -9,7 +10,7 @@ const Search = ({ data, setServantID }) => {
 
   const handleSearch = (e) => {
     const searchWord = e.target.value;
-    const newFilter = data.filter((value) => {
+    const newFilter = ServantData.filter((value) => {
       return value.name.toLowerCase().includes(searchWord.toLowerCase());
     });
 
@@ -35,8 +36,7 @@ const Search = ({ data, setServantID }) => {
               <div
                 className='dataitem'
                 key={value.id}
-                onClick={() => handleClick(value.id)}
-              >
+                onClick={() => handleClick(value.id)}>
                 {value.name +
                   ' (' +
                   capitalizeFirstLetter(value.className) +

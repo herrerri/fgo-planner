@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
+
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+
 import Navbar from './components/Navbar';
-import SearchPage from './components/searchpage/SearchPage';
-import ListPage from './components/listpage/ListPage';
-import ServantData from './resources/basic_servant_lang_en.json';
-import { Route, Routes } from 'react-router-dom';
+import Router from './router/Router';
 
 const App = () => {
   const [servants, setServants] = useState({});
@@ -21,12 +20,12 @@ const App = () => {
   }, [servants, items, inputList]);
 
   const getLocalData = () => {
-    const cacheServantData = window.localStorage.getItem('SERVANTS');
-    const cacheItemData = window.localStorage.getItem('ITEMS');
-    const userSavedData = window.localStorage.getItem('INPUT_LIST');
-    if (cacheServantData !== null) setServants(JSON.parse(cacheServantData));
-    if (cacheItemData !== null) setItems(JSON.parse(cacheItemData));
-    if (userSavedData !== null) setInputList(JSON.parse(userSavedData));
+    if (window.localStorage.getItem('SERVANTS') !== null)
+      setServants(JSON.parse(window.localStorage.getItem('SERVANTS')));
+    if (window.localStorage.getItem('ITEMS') !== null)
+      setItems(JSON.parse(window.localStorage.getItem('ITEMS')));
+    if (window.localStorage.getItem('INPUT_LIST') !== null)
+      setInputList(JSON.parse(window.localStorage.getItem('INPUT_LIST')));
   };
 
   const setLocalData = () => {
@@ -38,35 +37,14 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Routes>
-        <Route
-          path='/'
-          element={
-            <SearchPage
-              data={ServantData}
-              servants={servants}
-              setServants={setServants}
-              items={items}
-              setItems={setItems}
-              inputList={inputList}
-              setInputList={setInputList}
-            />
-          }
-        />
-        <Route
-          path='/overview'
-          element={
-            <ListPage
-              data={ServantData}
-              servants={servants}
-              items={items}
-              setItems={setItems}
-              inputList={inputList}
-              setInputList={setInputList}
-            />
-          }
-        />
-      </Routes>
+      <Router
+        servants={servants}
+        setServants={setServants}
+        items={items}
+        setItems={setItems}
+        inputList={inputList}
+        setInputList={setInputList}
+      />
     </div>
   );
 };
