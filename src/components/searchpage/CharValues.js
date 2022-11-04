@@ -11,7 +11,7 @@ const CharValues = (props) => {
           id={props.valueName + v}
           key={props.valueName + v + 'radio'}
           value={v}
-          defaultChecked={v === props.valueCheck ? true : false}
+          defaultChecked={v === props.values[props.valueName] ? true : false}
         />
         <label
           key={props.valueName + v + 'label'}

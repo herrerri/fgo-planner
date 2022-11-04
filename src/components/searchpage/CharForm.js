@@ -13,7 +13,7 @@ const CharForm = ({
   setItems,
   closingFunction,
 }) => {
-  const [tab, setTab] = useState('Levels');
+  const [tab, setTab] = useState('LEVELS');
 
   const handleTabUpdate = (e) => {
     setTab(e.target.value);
@@ -72,97 +72,51 @@ const CharForm = ({
     closingFunction();
   };
 
+  CharValues.defaultProps = {
+    className: 'char-val width-values',
+    update: { handleSelectionUpdate },
+    values: values,
+  };
+
   return (
     <form onSubmit={handleSubmit} className='char-form'>
       <CharValues
         className='char-val char-val-main width-values-main'
         valueName='cat'
-        valueList={['Levels', 'Skills', 'Appends']}
-        valueCheck={'Levels'}
+        valueList={['LEVELS', 'SKILLS', 'APPENDS']}
         update={handleTabUpdate}
       />
-      {tab === 'Levels' && (
+      {tab === 'LEVELS' && (
         <>
           <div className='val-header'>Level</div>
           <CharValues
-            className='char-val width-values'
             valueName='level'
             valueList={levelCheck(servant.rarity)}
-            valueCheck={values.level}
-            update={handleSelectionUpdate}
           />
           <div className='val-header'>ATK</div>
-          <CharValues
-            className='char-val width-values'
-            valueName='atk'
-            valueList={[0, 1000, 2000]}
-            valueCheck={values.atk}
-            update={handleSelectionUpdate}
-          />
+          <CharValues valueName='atk' valueList={[0, 1000, 2000]} />
           <div className='val-header'>HP</div>
-          <CharValues
-            className='char-val width-values'
-            valueName='hp'
-            valueList={[0, 1000, 2000]}
-            valueCheck={values.hp}
-            update={handleSelectionUpdate}
-          />
+          <CharValues valueName='hp' valueList={[0, 1000, 2000]} />
         </>
       )}
-      {tab === 'Skills' && (
+      {tab === 'SKILLS' && (
         <>
           <div className='val-header'>Skill 1</div>
-          <CharValues
-            className='char-val width-values'
-            valueName='skill1'
-            valueList={[1, 4, 6, 9, 10]}
-            valueCheck={values.skill1}
-            update={handleSelectionUpdate}
-          />
+          <CharValues valueName='skill1' valueList={[1, 4, 6, 9, 10]} />
           <div className='val-header'>Skill 2</div>
-          <CharValues
-            className='char-val width-values'
-            valueName='skill2'
-            valueList={[1, 4, 6, 9, 10]}
-            valueCheck={values.skill2}
-            update={handleSelectionUpdate}
-          />
+          <CharValues valueName='skill2' valueList={[1, 4, 6, 9, 10]} />
           <div className='val-header'>Skill 3</div>
-          <CharValues
-            className='char-val width-values'
-            valueName='skill3'
-            valueList={[1, 4, 6, 9, 10]}
-            valueCheck={values.skill3}
-            update={handleSelectionUpdate}
-          />
+          <CharValues valueName='skill3' valueList={[1, 4, 6, 9, 10]} />
         </>
       )}
-      {tab === 'Appends' && (
+      {tab === 'APPENDS' && (
         <>
           <div className='val-header'>Append Skill 1</div>
-          <CharValues
-            className='char-val width-values'
-            valueName='append1'
-            valueList={[0, 9, 10]}
-            valueCheck={values.append1}
-            update={handleSelectionUpdate}
-          />
+          <CharValues valueName='append1' valueList={[0, 9, 10]} />
           <div className='val-header'>Append Skill 2</div>
-          <CharValues
-            className='char-val width-values'
-            valueName='append2'
-            valueList={[0, 9, 10]}
-            valueCheck={values.append2}
-            update={handleSelectionUpdate}
-          />
+          <CharValues valueName='append2' valueList={[0, 9, 10]} />
           <div className='val-header'>Append Skill 3</div>
-          <CharValues
-            className='char-val width-values'
-            valueName='append3'
-            valueList={[0, 9, 10]}
-            valueCheck={values.append3}
-            update={handleSelectionUpdate}
-          />
+          <CharValues valueName='append3' valueList={[0, 9, 10]} />
         </>
       )}
       <button className='addToListButton' type='submit'>

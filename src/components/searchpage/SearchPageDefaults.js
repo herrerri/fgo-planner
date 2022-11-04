@@ -9,6 +9,7 @@ export const defaultValues = {
   append1: 0,
   append2: 0,
   append3: 0,
+  cat: 'LEVELS',
 };
 
 export const levelCheck = (rarity) => {

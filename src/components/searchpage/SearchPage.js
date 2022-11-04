@@ -29,29 +29,7 @@ const SearchPage = (props) => {
           if (props.servants[servantID]) {
             servantData = await props.servants[servantID];
           } else {
-            const servant = await axios.get(
-              'https://api.atlasacademy.io/nice/JP/servant/' +
-                servantID +
-                '?lang=en'
-            );
-
-            let servantMats = mapMats(props.items, servant.data, true);
-            let itemMats = mapMats(props.items, servant.data, false);
-
-            servantData = {
-              id: servant.data.id,
-              name: servant.data.name,
-              rarity: servant.data.rarity,
-              servantClass: servant.data.className,
-              face: servant.data.extraAssets.faces.ascension[4],
-              mats: servantMats,
-            };
-
-            props.setItems(itemMats);
-            props.setServants({
-              ...props.servants,
-              [servantID]: servantData,
-            });
+            servantData = await fetchFromApi();
           }
 
           setSelectedValues(defaultValues);
@@ -65,6 +43,32 @@ const SearchPage = (props) => {
       fetchData();
     }
   }, [servantID]);
+
+  const fetchFromApi = async () => {
+    const servant = await axios.get(
+      'https://api.atlasacademy.io/nice/JP/servant/' + servantID + '?lang=en'
+    );
+
+    let servantMats = mapMats(props.items, servant.data, true);
+    let itemMats = mapMats(props.items, servant.data, false);
+
+    let servantData = {
+      id: servant.data.id,
+      name: servant.data.name,
+      rarity: servant.data.rarity,
+      servantClass: servant.data.className,
+      face: servant.data.extraAssets.faces.ascension[4],
+      mats: servantMats,
+    };
+
+    props.setItems(itemMats);
+    props.setServants({
+      ...props.servants,
+      [servantID]: servantData,
+    });
+
+    return servantData;
+  };
 
   const closingFunction = () => {
     setUserAction(false);
@@ -83,7 +87,7 @@ const SearchPage = (props) => {
 
   return (
     <div className='page'>
-      <h1 className='white-text'>Fate/Grand Order Planner</h1>
+      <h1 className='white-text'>Search Page</h1>
       <i className='white-text subheading'>
         Plan out future item calculations by searching and adding FGO servants
         to a list!
@@ -107,24 +111,21 @@ const SearchPage = (props) => {
           <img
             src='https://static.atlasacademy.io/JP/Faces/f_28001003.png'
             alt='oberon'
-            className='char-image'
-          ></img>
+            className='char-image'></img>
           <div className='example-text  white-text'>Oberon</div>
         </div>
         <div className='example blue-two' onClick={() => setServantID(704000)}>
           <img
             src='https://static.atlasacademy.io/JP/Faces/f_7040003.png'
             alt='morgan'
-            className='char-image'
-          ></img>
+            className='char-image'></img>
           <div className='example-text  white-text'>Morgan</div>
         </div>
         <div className='example blue-two' onClick={() => setServantID(402900)}>
           <img
             src='https://static.atlasacademy.io/JP/Faces/f_4029003.png'
             alt='achilles'
-            className='char-image'
-          ></img>
+            className='char-image'></img>
           <div className='example-text  white-text'>Achilles</div>
         </div>
       </div>
@@ -159,8 +160,7 @@ const SearchPage = (props) => {
             setSelectedValues={setSelectedValues}
             setInputList={props.setInputList}
             setItems={props.setItems}
-            closingFunction={closingFunction}
-          ></CharForm>
+            closingFunction={closingFunction}></CharForm>
         </div>
       )}
       <ToastContainer transition={Flip} />
