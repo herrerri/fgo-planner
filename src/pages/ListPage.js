@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import ItemOverview from './ItemOverview';
-import ServantOverview from './ServantOverview';
-import Popup from './Popup';
-import { operateAllValues } from '../searchpage/SearchPageDefaults';
+import ItemOverview from 'components/ItemOverview';
+import ServantOverview from 'components/ServantOverview';
+import Popup from 'components/Popup';
+import { operateAllValues } from 'components/SearchPageDefaults';
 import { ToastContainer, toast, Flip } from 'react-toastify';
+import { DefaultToast } from 'components/DefaultToast';
 
 const ListPage = (props) => {
   const [formPopup, setFormPopup] = useState(false);
@@ -18,16 +19,7 @@ const ListPage = (props) => {
   };
 
   const closingFunction = () => {
-    toast('Totals Updated!', {
-      position: 'top-center',
-      autoClose: 1500,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      closeButton: false,
-    });
+    toast('Totals Updated!', DefaultToast);
     setFormPopup(false);
   };
 
@@ -46,11 +38,7 @@ const ListPage = (props) => {
       newItems,
       props.servants[servant.id].mats,
       [oldInput.values.skill1, oldInput.values.skill2, oldInput.values.skill3],
-      [
-        oldInput.values.append1,
-        oldInput.values.append2,
-        oldInput.values.append3,
-      ],
+      [oldInput.values.append1, oldInput.values.append2, oldInput.values.append3],
       false
     );
 
@@ -63,15 +51,10 @@ const ListPage = (props) => {
     <div className='page'>
       <h1 className='white-text'>Overview Page</h1>
       <i className='white-text subheading'>
-        Plan out future item calculations by searching and adding FGO servants
-        to a list!
+        Plan out future item calculations by searching and adding FGO servants to a list!
       </i>
       <ItemOverview items={props.items} />
-      <ServantOverview
-        inputList={props.inputList}
-        servants={props.servants}
-        formPopup={setForm}
-      />
+      <ServantOverview inputList={props.inputList} servants={props.servants} formPopup={setForm} />
       <Popup
         openPopup={formPopup}
         formPopup={setFormPopup}
@@ -84,8 +67,7 @@ const ListPage = (props) => {
         setSelectedValues={setSelectedValues}
         setInputList={props.setInputList}
         closingFunction={closingFunction}
-        handleDelete={handleDelete}
-      ></Popup>
+        handleDelete={handleDelete}></Popup>
       <ToastContainer transition={Flip} />
     </div>
   );

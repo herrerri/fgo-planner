@@ -13,10 +13,7 @@ const CharValues = (props) => {
           value={v}
           defaultChecked={v === props.values[props.valueName] ? true : false}
         />
-        <label
-          key={props.valueName + v + 'label'}
-          htmlFor={props.valueName + v}
-        >
+        <label key={props.valueName + v + 'label'} htmlFor={props.valueName + v}>
           {v}
         </label>
       </>
@@ -24,11 +21,7 @@ const CharValues = (props) => {
   });
 
   return (
-    <div
-      className={props.className}
-      onChange={props.update}
-      key={props.valueName}
-    >
+    <div className={props.className} onChange={props.update} key={props.valueName}>
       {printSelection}
     </div>
   );

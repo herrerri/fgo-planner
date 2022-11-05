@@ -1,17 +1,10 @@
 import React from 'react';
-import Home from '../components/Home';
-import SearchPage from '../components/searchpage/SearchPage';
-import ListPage from '../components/listpage/ListPage';
+import Home from 'pages/Home';
+import SearchPage from 'pages/SearchPage';
+import ListPage from 'pages/ListPage';
 import { Route, Routes } from 'react-router-dom';
 
-const Router = ({
-  servants,
-  setServants,
-  items,
-  setItems,
-  inputList,
-  setInputList,
-}) => {
+const Router = ({ servants, setServants, items, setItems, inputList, setInputList }) => {
   return (
     <Routes>
       <Route path='/' element={<Home />}></Route>

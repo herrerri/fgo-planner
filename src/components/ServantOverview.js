@@ -23,16 +23,8 @@ const ServantOverview = (props) => {
     })
     .map((v) => {
       return (
-        <div
-          className='servant-container  blue-two'
-          onClick={() => props.formPopup(v)}
-        >
-          <img
-            loading='lazy'
-            src={v.face}
-            alt={v.name}
-            className='servant-icon blue-two'
-          />
+        <div className='servant-container  blue-two' onClick={() => props.formPopup(v)}>
+          <img loading='lazy' src={v.face} alt={v.name} className='servant-icon blue-two' />
           <div className='item-hover-text'>{v.name}</div>
         </div>
       );
@@ -44,9 +36,7 @@ const ServantOverview = (props) => {
 
       <div className='servant-overview-items blue-two'>
         {servantDisplay(props.servants, props.inputList).length === 0 ? (
-          <div className='empty-text'>
-            Search and add characters to view and edit them here!
-          </div>
+          <div className='empty-text'>Search and add characters to view and edit them here!</div>
         ) : (
           displayServants
         )}

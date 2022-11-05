@@ -41,27 +41,19 @@ const operationSwitch = (a, b, sum) => {
   }
 };
 
-const handleItemUpdate = (
-  items,
-  servantData,
-  upgradeType,
-  operation,
-  valueArray
-) => {
+const handleItemUpdate = (items, servantData, upgradeType, operation, valueArray) => {
   let newItems = items;
   valueArray.forEach((item) => {
     if (item > 0) {
       [...Array(item - 1).keys()].forEach((i) => {
-        Object.keys(servantData[parseInt('' + upgradeType + i)]).forEach(
-          (key) => {
-            operationSwitch();
-            newItems[key].amount = operationSwitch(
-              newItems[key].amount,
-              servantData[parseInt('' + upgradeType + i)][key],
-              operation
-            );
-          }
-        );
+        Object.keys(servantData[parseInt('' + upgradeType + i)]).forEach((key) => {
+          operationSwitch();
+          newItems[key].amount = operationSwitch(
+            newItems[key].amount,
+            servantData[parseInt('' + upgradeType + i)][key],
+            operation
+          );
+        });
       });
     }
   });
@@ -69,13 +61,7 @@ const handleItemUpdate = (
   return newItems;
 };
 
-export const operateAllValues = (
-  items,
-  servantData,
-  skillArray,
-  appendArray,
-  sum
-) => {
+export const operateAllValues = (items, servantData, skillArray, appendArray, sum) => {
   let newItems = handleItemUpdate(items, servantData, 1, sum, skillArray);
   newItems = handleItemUpdate(items, servantData, 2, sum, appendArray);
   newItems = handleItemUpdate(items, servantData, 3, sum, [5]);
@@ -85,11 +71,7 @@ export const operateAllValues = (
 
 export const mapMats = (items, dataObject, servant) => {
   let newItems = {};
-  let dataNames = [
-    'skillMaterials',
-    'appendSkillMaterials',
-    'ascensionMaterials',
-  ];
+  let dataNames = ['skillMaterials', 'appendSkillMaterials', 'ascensionMaterials'];
 
   if (!servant) {
     newItems = items;
@@ -109,9 +91,7 @@ export const mapMats = (items, dataObject, servant) => {
                   [i.item.id]: i.amount,
                 };
               } else {
-                newItems[parseInt('' + (dataIndex + 1) + itemIndex)][
-                  i.item.id
-                ] = i.amount;
+                newItems[parseInt('' + (dataIndex + 1) + itemIndex)][i.item.id] = i.amount;
               }
             } else if (!newItems[i.item.id]) {
               newItems[i.item.id] = {

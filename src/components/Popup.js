@@ -1,6 +1,6 @@
 import React from 'react';
-import { capitalizeFirstLetter } from '../searchpage/SearchPageDefaults';
-import CharForm from '../searchpage/CharForm';
+import { capitalizeFirstLetter } from 'components/SearchPageDefaults';
+import CharForm from 'components/CharForm';
 
 const Popup = ({
   openPopup,
@@ -23,8 +23,7 @@ const Popup = ({
           className='popup-close-btn'
           onClick={() => {
             formPopup(false);
-          }}
-        >
+          }}>
           &times;
         </button>
         <div className='char-info'>
@@ -36,10 +35,7 @@ const Popup = ({
               alt={"Image of Fate Grand Order's " + servant.name}
             />
             <h1 className='char-name'>
-              {servant.name +
-                ' (' +
-                capitalizeFirstLetter(servant.servantClass) +
-                ')'}
+              {servant.name + ' (' + capitalizeFirstLetter(servant.servantClass) + ')'}
             </h1>
           </div>
           <CharForm
@@ -52,8 +48,7 @@ const Popup = ({
             setSelectedValues={setSelectedValues}
             setInputList={setInputList}
             setItems={setItems}
-            closingFunction={closingFunction}
-          ></CharForm>
+            closingFunction={closingFunction}></CharForm>
         </div>
         <button className='deleteButton' onClick={() => handleDelete()}>
           DELETE

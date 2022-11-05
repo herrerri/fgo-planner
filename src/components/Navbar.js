@@ -11,7 +11,6 @@ const Navbar = () => {
         <Link to='/search' className='navlist navlogo'>
           Search
         </Link>
-
         <Link className='navlist navlogo' to='/overview'>
           Overview
         </Link>

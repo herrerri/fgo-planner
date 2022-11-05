@@ -278,8 +278,8 @@ input[type='radio'] {
   font-weight: 600;
   line-height: 20px;
   text-align: center;
-  transition: border-color 0.15s ease-out, color 0.25s ease-out,
-    background-color 0.15s ease-out, box-shadow 0.15s ease-out;
+  transition: border-color 0.15s ease-out, color 0.25s ease-out, background-color 0.15s ease-out,
+    box-shadow 0.15s ease-out;
 }
 
 .char-val-radio:hover + label {
@@ -400,8 +400,7 @@ input[type='radio'] {
   font-size: 0.9rem;
   font-weight: 700;
   background: none;
-  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
-    -1px -1px 0 #000;
+  text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
 }
 
 .servant-icon {

@@ -19,12 +19,7 @@ const ItemOverview = (props) => {
     .map((v) => {
       return (
         <div className='item-container blue-two'>
-          <img
-            loading='lazy'
-            src={v.icon}
-            alt={v.name}
-            className='item-icon blue-two'
-          />
+          <img loading='lazy' src={v.icon} alt={v.name} className='item-icon blue-two' />
           <div className='item-text blue-two'>{'x' + v.amount}</div>
           <div className='item-hover-text'>{v.name}</div>
         </div>
@@ -36,9 +31,7 @@ const ItemOverview = (props) => {
       <h2 className='item-overview-header blue-two'>Item Overview</h2>
       <div className='item-overview-items blue-two'>
         {itemDisplay(props.items).length === 0 ? (
-          <div className='empty-text'>
-            Search and add characters to view item requirements!
-          </div>
+          <div className='empty-text'>Search and add characters to view item requirements!</div>
         ) : (
           displayItems
         )}
