@@ -66,7 +66,9 @@ const CharForm = ({
 
   CharValues.defaultProps = {
     className: 'char-val width-values',
-    update: { handleSelectionUpdate },
+    update: (e) => {
+      handleSelectionUpdate(e);
+    },
     values: values,
   };
 

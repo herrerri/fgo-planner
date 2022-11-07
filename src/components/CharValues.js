@@ -1,19 +1,19 @@
 import React from 'react';
 
-const CharValues = (props) => {
-  const printSelection = props.valueList.map((v) => {
+const CharValues = ({ valueName, valueList, values, className, update }) => {
+  const printSelection = valueList.map((v) => {
     return (
       <>
         <input
           type='radio'
-          name={props.valueName}
+          name={valueName}
           className='char-val-radio'
-          id={props.valueName + v}
-          key={props.valueName + v + 'radio'}
+          id={valueName + v}
+          key={valueName + v + 'radio'}
           value={v}
-          defaultChecked={v === props.values[props.valueName] ? true : false}
+          defaultChecked={v === values[valueName] ? true : false}
         />
-        <label key={props.valueName + v + 'label'} htmlFor={props.valueName + v}>
+        <label key={valueName + v + 'label'} htmlFor={valueName + v}>
           {v}
         </label>
       </>
@@ -21,7 +21,7 @@ const CharValues = (props) => {
   });
 
   return (
-    <div className={props.className} onChange={props.update} key={props.valueName}>
+    <div className={className} onChange={update} key={valueName}>
       {printSelection}
     </div>
   );
