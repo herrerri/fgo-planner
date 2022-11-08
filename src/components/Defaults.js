@@ -1,3 +1,14 @@
+export const defaultToast = {
+  position: 'top-center',
+  autoClose: 1500,
+  hideProgressBar: true,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+  closeButton: false,
+};
+
 // Default values for the radio button selection
 export const defaultValues = {
   level: 90,

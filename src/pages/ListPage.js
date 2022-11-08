@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import ItemOverview from 'components/ItemOverview';
 import ServantOverview from 'components/ServantOverview';
 import Popup from 'components/Popup';
-import { operateAllValues } from 'components/SearchPageDefaults';
+import { operateAllValues, defaultToast } from 'components/Defaults';
 import { ToastContainer, toast, Flip } from 'react-toastify';
-import { DefaultToast } from 'components/DefaultToast';
 
 const ListPage = (props) => {
   const [formPopup, setFormPopup] = useState(false);
@@ -19,7 +18,7 @@ const ListPage = (props) => {
   };
 
   const closingFunction = () => {
-    toast('Totals Updated!', DefaultToast);
+    toast('Totals Updated!', defaultToast);
     setFormPopup(false);
   };
 

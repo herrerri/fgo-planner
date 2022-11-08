@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CharValues from 'components/CharValues';
-import { levelCheck, operateAllValues } from 'components/SearchPageDefaults';
+import { levelCheck, operateAllValues } from 'components/Defaults';
 
 const CharForm = ({
   servant,

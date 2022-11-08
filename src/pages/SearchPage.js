@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Search from 'components/Search';
 import CharForm from 'components/CharForm';
-import { DefaultToast } from 'components/DefaultToast';
-import { mapMats, capitalizeFirstLetter, defaultValues } from 'components/SearchPageDefaults';
+import { mapMats, capitalizeFirstLetter, defaultValues, defaultToast } from 'components/Defaults';
 import { ToastContainer, toast, Flip } from 'react-toastify';
 
 const SearchPage = ({ servants, setServants, items, setItems, inputList, setInputList }) => {
@@ -63,7 +62,7 @@ const SearchPage = ({ servants, setServants, items, setItems, inputList, setInpu
   const closingFunction = () => {
     setUserAction(false);
     setServantID('');
-    toast('Added to List!', DefaultToast);
+    toast('Added to List!', defaultToast);
   };
 
   return (

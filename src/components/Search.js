@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ServantData from 'resources/basic_servant_lang_en.json';
-import { capitalizeFirstLetter } from 'components/SearchPageDefaults';
+import { capitalizeFirstLetter } from 'components/Defaults';
 
 const Search = ({ setServantID }) => {
   const [filteredList, setFilterestList] = useState([]);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { capitalizeFirstLetter } from 'components/SearchPageDefaults';
+import { capitalizeFirstLetter } from 'components/Defaults';
 import CharForm from 'components/CharForm';
 
 const Popup = ({
