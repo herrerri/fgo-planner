@@ -43,16 +43,8 @@ const CharForm = ({
       newItems = operateAllValues(
         newItems,
         servants[servant.id].mats,
-        [
-          oldInput.values.skill1,
-          oldInput.values.skill2,
-          oldInput.values.skill3,
-        ],
-        [
-          oldInput.values.append1,
-          oldInput.values.append2,
-          oldInput.values.append3,
-        ],
+        [oldInput.values.skill1, oldInput.values.skill2, oldInput.values.skill3],
+        [oldInput.values.append1, oldInput.values.append2, oldInput.values.append3],
         false
       );
     }
@@ -74,10 +66,11 @@ const CharForm = ({
 
   CharValues.defaultProps = {
     className: 'char-val width-values',
-    update: { handleSelectionUpdate },
+    update: (e) => {
+      handleSelectionUpdate(e);
+    },
     values: values,
   };
-
   return (
     <form onSubmit={handleSubmit} className='char-form'>
       <CharValues
@@ -89,10 +82,7 @@ const CharForm = ({
       {tab === 'LEVELS' && (
         <>
           <div className='val-header'>Level</div>
-          <CharValues
-            valueName='level'
-            valueList={levelCheck(servant.rarity)}
-          />
+          <CharValues valueName='level' valueList={levelCheck(servant.rarity)} />
           <div className='val-header'>ATK</div>
           <CharValues valueName='atk' valueList={[0, 1000, 2000]} />
           <div className='val-header'>HP</div>
